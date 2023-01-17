@@ -26,4 +26,5 @@ jobs:
     - run: npm i
     - run: npm run build
     - run: sh script.sh
+    - run: echo "funcionando"
         
