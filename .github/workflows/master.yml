@@ -2,13 +2,13 @@ name: dev-env
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "dev" ]
+    branches: [ "master" ]
 
 jobs:
   build:
-    runs-on: [self-hosted, staging]
+    runs-on: self-hosted
 
     strategy:
       matrix:
@@ -25,5 +25,6 @@ jobs:
     
     - run: npm i
     - run: npm run build
-    - run: echo "this is running in group runner"
+    - run: sh script.sh
+    - run: echo "funcionando"
         
