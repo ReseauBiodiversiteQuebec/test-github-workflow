@@ -2,14 +2,17 @@ name: dev-env
 
 on:
   push:
+    branches: 
+      - "dev"
     tags:
         - 'v1.*'
-    branches: [ "dev" ]
+   
     
  
 
 jobs:
   build:
+    if: ${{ !contains(github.event.head_commit.message, '#build') }}
     runs-on:
       group: Staging
       labels:
