@@ -2,13 +2,11 @@ name: dev-env
 
 on:
   push:
-    branches: ["master"]
     tags:
-      - "v1.*"
+      - "[0-9][0-9][0-9][0-9].[0-9]+-staging"
 
 jobs:
   build:
-    if: contains(github.event.head_commit.message, '#build')
     runs-on: self-hosted
 
     steps:
@@ -17,10 +15,4 @@ jobs:
 
       #- run: npm i
       #- run: npm run build
-      - run: echo "this is running in group runner"
-      - name: Run smoke tests
-        if: contains(github.event.head_commit.message, 'smoke_test')
-        run: |
-          echo 'Running smoke tests!'
-
-##
+      - run: echo "deploying staging"
