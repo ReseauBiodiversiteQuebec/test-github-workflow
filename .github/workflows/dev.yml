@@ -12,10 +12,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=branch::$(echo ${GITHUB_REF##*/})"
-
       - name: branch checking
         uses: actions/setup-node@v3
 
