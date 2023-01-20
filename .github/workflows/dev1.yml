@@ -2,7 +2,7 @@ name: dev-env
 
 on:
   push:
-    branches: ["dev"]
+    #branches: ["dev"]
     tags:
       - "v1.*"
 
