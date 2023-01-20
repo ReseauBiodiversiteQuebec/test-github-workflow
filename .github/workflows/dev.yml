@@ -11,6 +11,8 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
       - uses: actions/checkout@v1
       - name: Exit if not on dev branch
         #uses: actions/setup-node@v3
@@ -24,6 +26,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: npm i
-      - run: npm run build
-      #- run: echo "this is running in group runner"
+      #- run: npm i
+      #- run: npm run build
+      - run: echo "this is running in group runner"
