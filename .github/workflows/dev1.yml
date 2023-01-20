@@ -13,7 +13,12 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v1
       - name: Branch name
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF##*/})"
         id: extract_branch
+      - name: Branch name
+        run: echo "##[set-output name=tag;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_tag
       - name: Print Branch name
         run: echo ${{ steps.extract_branch.outputs.branch }}
+      - name: Print Tag name
+        run: echo ${{ steps.extract_tag.outputs.tag }}
