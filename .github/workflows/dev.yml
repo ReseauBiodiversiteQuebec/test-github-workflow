@@ -12,9 +12,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Exit if not on master branch
+      - name: Exit if not on dev branch
+        uses: actions/setup-node@v3
         if: endsWith(github.ref, 'dev') == false
-        run: exit -1
+      - run: echo ${{github.ref}}
+      - run: exit -1
 
       - uses: actions/checkout@v3
       - name: branch checking
