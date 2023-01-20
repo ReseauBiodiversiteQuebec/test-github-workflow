@@ -4,7 +4,7 @@ on:
     branches: ["dev"]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Git checkout
         uses: actions/checkout@v1
