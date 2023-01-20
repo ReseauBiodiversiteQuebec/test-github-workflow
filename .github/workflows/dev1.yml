@@ -1,0 +1,16 @@
+name: dev-env
+
+on:
+  push:
+    tags:
+      - "v1.*"
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v1
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
