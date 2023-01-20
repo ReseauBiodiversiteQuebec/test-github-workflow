@@ -15,8 +15,8 @@ jobs:
       - name: Exit if not on dev branch
         uses: actions/setup-node@v3
         if: endsWith(github.ref, 'dev') == false
-      - run: ${{ github.head_ref || github.ref_name }}
-      #- run: ${{ github.head_ref }}
+      - run: echo ${{ github.head_ref || github.ref_name }}
+      - run: echo ok
 
       - uses: actions/checkout@v3
       - name: branch checking
